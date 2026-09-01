@@ -1,0 +1,7 @@
+// This comment changes source bytes but is explicitly nonsemantic.
+module "demo/leaf" release "v1.0.0" semantic_digest "sha256:c6f91718dc7535efe81cfb868a9c0eca217bad12d414f970230ce8d3d87621f0" {
+  dependency "demo/shared" release "v1.0.0" semantic_digest "sha256:7e8ac93bcbbbe89970f40aad64d0719405a40078c71188af1dcb129739cc2e27" edge "leaf-shared" invalidates "shared-semantic"
+  export "LeafValue"
+  invalidation "leaf-semantic" kind "semantic" scope "dependents"
+  test_owner "leaf-test" owner "demo/leaf" covers "demo/leaf,demo/shared,demo/core" kind "unit" command "go test ./leaf"
+}

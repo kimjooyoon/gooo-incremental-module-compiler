@@ -1,0 +1,53 @@
+{
+  "schema": "gooo/incremental-module-compiler/upstream-lock/v1",
+  "authority": "immutable_public_release_only",
+  "inputs": [
+    {
+      "name": "canonical-linked-graph",
+      "repository": "kimjooyoon/gooo-module-linker",
+      "tag": "v0.1.1",
+      "tag_object": "006323188885fe6564c26a47c71b66a3a0dc960e",
+      "target_commit": "73a2c4f64be92d3dff67e659794f1597427c3148",
+      "release_id": 380147845,
+      "release_immutable": true,
+      "asset": {
+        "id": 538733979,
+        "name": "linked-ir-v0.1.1.json",
+        "size": 2746,
+        "digest": "sha256:1e9b83b38a09a31cc9fabb98c3ac0767e7b4941f84916f3f875f2bb6f91146e0"
+      }
+    },
+    {
+      "name": "public-causal-runner",
+      "repository": "kimjooyoon/gooo-causal-verification-runner",
+      "tag": "v0.1.1",
+      "tag_object": "82bb99006232a064725df29a53af5405e222cd42",
+      "target_commit": "0c16428762d1d1da1b28fe05c4e051d2cc41967b",
+      "release_id": 380048457,
+      "release_immutable": true,
+      "asset": {
+        "id": 538521941,
+        "name": "gooo-causal-verification-runner-v0.1.1.tar.gz",
+        "size": 38034,
+        "digest": "sha256:fcf40acd1f09805e526b8e9634cd70b8f308e1f2312b0aac8d3253c4038db7fb"
+      }
+    },
+    {
+      "name": "repository-bootstrap",
+      "repository": "kimjooyoon/gooo-repository-bootstrap",
+      "tag": "v0.1.1",
+      "tag_object": "964d9d886d4c650212804bcbba1c00c8715bec07",
+      "target_commit": "594b917c4b289adaf7b83e079bb526df68b339bb",
+      "release_id": 380054521,
+      "release_immutable": true,
+      "asset": {
+        "id": 538532124,
+        "name": "gooo-evidence-0.1.1.json",
+        "size": 2789,
+        "digest": "sha256:dc204e92d219e291b9568f18affd556f226fc54114c008d00e6189ea169c9076"
+      }
+    }
+  ],
+  "optional": true,
+  "sibling_checkout_consumption": false
+}

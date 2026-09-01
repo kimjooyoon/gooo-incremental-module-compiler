@@ -17,23 +17,23 @@ const (
 )
 
 type Contract struct {
-	Schema          string             `json:"schema"`
-	Authority       string             `json:"authority"`
-	ContractID      string             `json:"contract_id"`
-	Policy          Policy             `json:"policy"`
-	Inventory       InventorySpec      `json:"inventory"`
-	Measurements    MeasurementSpec    `json:"measurements"`
-	CanonicalCases  []CanonicalCase    `json:"canonical_cases"`
+	Schema         string          `json:"schema"`
+	Authority      string          `json:"authority"`
+	ContractID     string          `json:"contract_id"`
+	Policy         Policy          `json:"policy"`
+	Inventory      InventorySpec   `json:"inventory"`
+	Measurements   MeasurementSpec `json:"measurements"`
+	CanonicalCases []CanonicalCase `json:"canonical_cases"`
 }
 
 type Policy struct {
-	BootstrapCommit         BootstrapRule `json:"bootstrap_commit"`
-	PostBootstrapDirectMain DirectRule    `json:"post_bootstrap_direct_main"`
-	StatusPrecedence        []Status      `json:"status_precedence"`
-	UnknownFields           []string      `json:"unknown_fields"`
-	ApplyBoundary           ApplyBoundary `json:"apply_boundary"`
+	BootstrapCommit         BootstrapRule       `json:"bootstrap_commit"`
+	PostBootstrapDirectMain DirectRule          `json:"post_bootstrap_direct_main"`
+	StatusPrecedence        []Status            `json:"status_precedence"`
+	UnknownFields           []string            `json:"unknown_fields"`
+	ApplyBoundary           ApplyBoundary       `json:"apply_boundary"`
 	ImprovementEvidence     ImprovementEvidence `json:"improvement_evidence"`
-	ClosureGuards           []ClosureGuard `json:"closure_guards"`
+	ClosureGuards           []ClosureGuard      `json:"closure_guards"`
 }
 
 type BootstrapRule struct {
@@ -47,19 +47,19 @@ type DirectRule struct {
 }
 
 type ApplyBoundary struct {
-	PlanBeforeApply           bool `json:"plan_before_apply"`
-	TargetRepoWritesBefore   int  `json:"target_repo_writes_before_apply"`
-	CallerOwnedOutputsOnly   bool `json:"caller_owned_outputs_only"`
+	PlanBeforeApply        bool `json:"plan_before_apply"`
+	TargetRepoWritesBefore int  `json:"target_repo_writes_before_apply"`
+	CallerOwnedOutputsOnly bool `json:"caller_owned_outputs_only"`
 }
 
 type ImprovementEvidence struct {
-	SameInputDigestRequired       bool   `json:"same_input_digest_required"`
-	BeforeAfterIntegerPairRequired bool  `json:"before_after_integer_pair_required"`
-	MissingEvidenceStatus         Status `json:"missing_evidence_status"`
+	SameInputDigestRequired        bool   `json:"same_input_digest_required"`
+	BeforeAfterIntegerPairRequired bool   `json:"before_after_integer_pair_required"`
+	MissingEvidenceStatus          Status `json:"missing_evidence_status"`
 }
 
 type ClosureGuard struct {
-	Claim                string `json:"claim"`
+	Claim                 string `json:"claim"`
 	WithoutEvidenceStatus Status `json:"without_evidence_status"`
 }
 
@@ -77,12 +77,12 @@ type MeasurementSpec struct {
 }
 
 type CanonicalCase struct {
-	ID                       string         `json:"id"`
-	ExpectedStatus           Status         `json:"expected_status"`
+	ID                      string         `json:"id"`
+	ExpectedStatus          Status         `json:"expected_status"`
 	PostBootstrapDirectMain int            `json:"post_bootstrap_direct_main"`
-	GitHubAPI                string         `json:"github_api"`
-	Ruleset                  string         `json:"ruleset"`
-	Unknown                  *UnknownRecord `json:"unknown,omitempty"`
+	GitHubAPI               string         `json:"github_api"`
+	Ruleset                 string         `json:"ruleset"`
+	Unknown                 *UnknownRecord `json:"unknown,omitempty"`
 }
 
 type UnknownRecord struct {
@@ -95,12 +95,12 @@ type UnknownRecord struct {
 }
 
 type Observation struct {
-	BootstrapCommits            int    `json:"bootstrap_commits"`
-	BootstrapCommitsKnown       bool   `json:"bootstrap_commits_known"`
-	PostBootstrapDirectMain     int    `json:"post_bootstrap_direct_main"`
-	PostBootstrapDirectMainKnown bool  `json:"post_bootstrap_direct_main_known"`
-	GitHubAPI                   string `json:"github_api"`
-	Ruleset                     string `json:"ruleset"`
+	BootstrapCommits             int    `json:"bootstrap_commits"`
+	BootstrapCommitsKnown        bool   `json:"bootstrap_commits_known"`
+	PostBootstrapDirectMain      int    `json:"post_bootstrap_direct_main"`
+	PostBootstrapDirectMainKnown bool   `json:"post_bootstrap_direct_main_known"`
+	GitHubAPI                    string `json:"github_api"`
+	Ruleset                      string `json:"ruleset"`
 }
 
 type Result struct {

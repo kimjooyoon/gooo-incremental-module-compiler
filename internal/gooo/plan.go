@@ -18,23 +18,23 @@ type Operation struct {
 }
 
 type Manifest struct {
-	Schema                    string      `json:"schema"`
-	Authority                 string      `json:"authority"`
-	InputDigest               string      `json:"input_digest"`
-	ContractDigest            string      `json:"contract_digest"`
-	Target                    string      `json:"target"`
-	TargetRepoWritesBeforeApply int       `json:"target_repo_writes_before_apply"`
-	Operations                []Operation `json:"operations"`
+	Schema                      string      `json:"schema"`
+	Authority                   string      `json:"authority"`
+	InputDigest                 string      `json:"input_digest"`
+	ContractDigest              string      `json:"contract_digest"`
+	Target                      string      `json:"target"`
+	TargetRepoWritesBeforeApply int         `json:"target_repo_writes_before_apply"`
+	Operations                  []Operation `json:"operations"`
 }
 
 type Dossier struct {
-	Schema                    string         `json:"schema"`
-	Authority                 string         `json:"authority"`
-	InputDigest               string         `json:"input_digest"`
-	ManifestDigest            string         `json:"manifest_digest"`
-	Status                    Status         `json:"status"`
-	Unknown                   *UnknownRecord `json:"unknown,omitempty"`
-	TargetRepoWritesBeforeApply int          `json:"target_repo_writes_before_apply"`
+	Schema                      string         `json:"schema"`
+	Authority                   string         `json:"authority"`
+	InputDigest                 string         `json:"input_digest"`
+	ManifestDigest              string         `json:"manifest_digest"`
+	Status                      Status         `json:"status"`
+	Unknown                     *UnknownRecord `json:"unknown,omitempty"`
+	TargetRepoWritesBeforeApply int            `json:"target_repo_writes_before_apply"`
 }
 
 type PlanArtifact struct {

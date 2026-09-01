@@ -11,23 +11,23 @@ import (
 )
 
 type InventoryMetrics struct {
-	GoFiles             int `json:"go_files"`
-	GoooFiles           int `json:"gooo_files"`
-	GoPhysicalLines     int `json:"go_physical_lines"`
-	GoooPhysicalLines   int `json:"gooo_physical_lines"`
-	Subdirectories      int `json:"subdirectories"`
-	RegularFiles        int `json:"regular_files"`
+	GoFiles           int `json:"go_files"`
+	GoooFiles         int `json:"gooo_files"`
+	GoPhysicalLines   int `json:"go_physical_lines"`
+	GoooPhysicalLines int `json:"gooo_physical_lines"`
+	Subdirectories    int `json:"subdirectories"`
+	RegularFiles      int `json:"regular_files"`
 }
 
 type RuntimeMetric struct {
-	WallMS      int64 `json:"wall_ms"`
-	PeakRSSKiB  int64 `json:"peak_rss_kib"`
+	WallMS     int64 `json:"wall_ms"`
+	PeakRSSKiB int64 `json:"peak_rss_kib"`
 }
 
 type RuntimeMetrics struct {
-	Build        RuntimeMetric `json:"build"`
-	Test         RuntimeMetric `json:"test"`
-	Conformance  RuntimeMetric `json:"conformance"`
+	Build       RuntimeMetric `json:"build"`
+	Test        RuntimeMetric `json:"test"`
+	Conformance RuntimeMetric `json:"conformance"`
 }
 
 type TestMetrics struct {
@@ -147,9 +147,9 @@ func ParseGoTestJSON(path string) (TestMetrics, error) {
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
 		var event struct {
-			Action  string `json:"Action"`
-			Test    string `json:"Test"`
-			Output  string `json:"Output"`
+			Action string `json:"Action"`
+			Test   string `json:"Test"`
+			Output string `json:"Output"`
 		}
 		if err := json.Unmarshal(scanner.Bytes(), &event); err != nil {
 			metrics.Unknown++

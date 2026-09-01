@@ -12,13 +12,13 @@ func testContract(t *testing.T) Contract {
 	return Contract{
 		Schema: "gooo.bootstrap/v1", Authority: "metacode", ContractID: "test",
 		Policy: Policy{
-			BootstrapCommit: BootstrapRule{Exactly: 1, Exception: "BOOTSTRAP_EXCEPTION"},
+			BootstrapCommit:         BootstrapRule{Exactly: 1, Exception: "BOOTSTRAP_EXCEPTION"},
 			PostBootstrapDirectMain: DirectRule{Exactly: 0, ViolationStatus: StatusRefuted},
-			StatusPrecedence: []Status{StatusRefuted, StatusUnknown, StatusClosed},
-			UnknownFields: []string{"stage", "step", "reason", "unknown_class", "next_operation", "blocked_by"},
-			ApplyBoundary: ApplyBoundary{PlanBeforeApply: true, TargetRepoWritesBefore: 0, CallerOwnedOutputsOnly: true},
-			ImprovementEvidence: ImprovementEvidence{SameInputDigestRequired: true, BeforeAfterIntegerPairRequired: true, MissingEvidenceStatus: StatusUnknown},
-			ClosureGuards: []ClosureGuard{{Claim: "global_language_self_improvement", WithoutEvidenceStatus: StatusUnknown}, {Claim: "external_utility", WithoutEvidenceStatus: StatusUnknown}},
+			StatusPrecedence:        []Status{StatusRefuted, StatusUnknown, StatusClosed},
+			UnknownFields:           []string{"stage", "step", "reason", "unknown_class", "next_operation", "blocked_by"},
+			ApplyBoundary:           ApplyBoundary{PlanBeforeApply: true, TargetRepoWritesBefore: 0, CallerOwnedOutputsOnly: true},
+			ImprovementEvidence:     ImprovementEvidence{SameInputDigestRequired: true, BeforeAfterIntegerPairRequired: true, MissingEvidenceStatus: StatusUnknown},
+			ClosureGuards:           []ClosureGuard{{Claim: "global_language_self_improvement", WithoutEvidenceStatus: StatusUnknown}, {Claim: "external_utility", WithoutEvidenceStatus: StatusUnknown}},
 		},
 		Inventory: InventorySpec{ExcludePaths: []string{"README.md"}},
 		Measurements: MeasurementSpec{
