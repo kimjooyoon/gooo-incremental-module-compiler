@@ -15,17 +15,17 @@ type VerifyReport struct {
 }
 
 type Evidence struct {
-	Schema                    string          `json:"schema"`
-	Authority                 string          `json:"authority"`
-	ContractDigest            string          `json:"contract_digest"`
-	InputDigest               string          `json:"input_digest"`
-	PolicyStatus              Status          `json:"policy_status"`
-	Unknown                   *UnknownRecord  `json:"unknown,omitempty"`
-	Inventory                 InventoryMetrics `json:"inventory"`
-	Runtime                   RuntimeMetrics  `json:"runtime"`
-	Tests                     TestMetrics     `json:"tests"`
-	GeneratedArtifacts        ArtifactMetrics `json:"generated_artifacts"`
-	TargetRepoWritesBeforeApply int           `json:"target_repo_writes_before_apply"`
+	Schema                      string           `json:"schema"`
+	Authority                   string           `json:"authority"`
+	ContractDigest              string           `json:"contract_digest"`
+	InputDigest                 string           `json:"input_digest"`
+	PolicyStatus                Status           `json:"policy_status"`
+	Unknown                     *UnknownRecord   `json:"unknown,omitempty"`
+	Inventory                   InventoryMetrics `json:"inventory"`
+	Runtime                     RuntimeMetrics   `json:"runtime"`
+	Tests                       TestMetrics      `json:"tests"`
+	GeneratedArtifacts          ArtifactMetrics  `json:"generated_artifacts"`
+	TargetRepoWritesBeforeApply int              `json:"target_repo_writes_before_apply"`
 }
 
 func LoadVerifyReport(path string) (VerifyReport, error) {

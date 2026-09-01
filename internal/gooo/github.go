@@ -24,9 +24,9 @@ type rulesetSummary struct {
 }
 
 type rulesetDetail struct {
-	Target     string `json:"target"`
+	Target      string `json:"target"`
 	Enforcement string `json:"enforcement"`
-	Conditions struct {
+	Conditions  struct {
 		RefName struct {
 			Include []string `json:"include"`
 		} `json:"ref_name"`
@@ -43,10 +43,10 @@ func ObserveGitHub(ctx context.Context, repo, sha, event, ref, before string) (O
 
 func (o githubObserver) observe(ctx context.Context, repo, sha, event, ref, before string) (Observation, error) {
 	observation := Observation{
-		BootstrapCommits:       1,
-		BootstrapCommitsKnown:  true,
-		GitHubAPI:              "observed",
-		Ruleset:                "observed",
+		BootstrapCommits:      1,
+		BootstrapCommitsKnown: true,
+		GitHubAPI:             "observed",
+		Ruleset:               "observed",
 	}
 	if repo == "" || o.token == "" {
 		return Observation{BootstrapCommitsKnown: false, PostBootstrapDirectMainKnown: false, GitHubAPI: "insufficient", Ruleset: "insufficient"}, errors.New("GitHub repository or token is unavailable")
