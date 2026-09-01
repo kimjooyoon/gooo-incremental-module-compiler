@@ -18,17 +18,19 @@ read -r conformance_ms conformance_rss < "$conformance_time"
 read -r integration_ms integration_rss < "$integration_time"
 
 sum_lines() {
-  local pattern=$1
+  local name_flag=$1
+  local name_pattern=$2
   local total=0
   while IFS= read -r -d '' file; do
     total=$((total + $(wc -l < "$file")))
-  done < <(find "$repo_root" -type f $pattern -not -path "$repo_root/.git/*" -not -name README.md -print0)
+  done < <(find "$repo_root" -type f "$name_flag" "$name_pattern" -not -path "$repo_root/.git/*" -not -name README.md -print0)
   echo "$total"
 }
 
 count_files() {
-  local pattern=$1
-  find "$repo_root" -type f $pattern -not -path "$repo_root/.git/*" -not -name README.md -print | wc -l | tr -d ' '
+  local name_flag=$1
+  local name_pattern=$2
+  find "$repo_root" -type f "$name_flag" "$name_pattern" -not -path "$repo_root/.git/*" -not -name README.md -print | wc -l | tr -d ' '
 }
 
 go_files=$(count_files -name '*.go')
