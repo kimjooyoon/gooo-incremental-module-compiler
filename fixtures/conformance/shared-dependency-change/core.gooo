@@ -1,0 +1,5 @@
+module "demo/core" release "v1.0.0" semantic_digest "sha256:8f316bb2fa13c55fa94e7033613b597095f68f096f94cd3778f8bea60c3adf94" {
+  export "CoreValue"
+  invalidation "core-semantic" kind "semantic" scope "dependents"
+  test_owner "core-test" owner "demo/core" covers "demo/core" kind "unit" command "go test ./core"
+}

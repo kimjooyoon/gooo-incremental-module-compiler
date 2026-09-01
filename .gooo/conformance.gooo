@@ -1,0 +1,7 @@
+conformance "gooo-incremental-module-compiler/v1" {
+  scenario "leaf-change" expect "CLOSED" input "fixtures/conformance/leaf-change" selected "true"
+  scenario "shared-dependency-change" expect "CLOSED" input "fixtures/conformance/shared-dependency-change" selected "true"
+  scenario "comment-only-nonsemantic" expect "CLOSED" input "fixtures/conformance/comment-only-nonsemantic" selected "true"
+  scenario "missing-digest" expect "UNKNOWN" input "fixtures/conformance/missing-digest" selected "true"
+  scenario "stale-cache" expect "REFUTED" input "fixtures/conformance/stale-cache" selected "true"
+}

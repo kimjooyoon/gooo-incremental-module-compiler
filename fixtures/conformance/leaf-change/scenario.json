@@ -1,0 +1,27 @@
+{
+  "schema": "gooo/incremental-module-compiler/scenario/v1",
+  "scenario_id": "leaf-change",
+  "source_digest": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+  "toolchain_digest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "contract_digest": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+  "changes": [{"module": "demo/leaf", "kind": "semantic", "predicate": "demo/leaf/output"}],
+  "cache": [
+    {"module": "demo/core", "semantic_digest": "sha256:8f316bb2fa13c55fa94e7033613b597095f68f096f94cd3778f8bea60c3adf94", "dependency_digest": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945", "toolchain_digest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "contract_digest": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc", "result_digest": "sha256:1111111111111111111111111111111111111111111111111111111111111111", "immutable": true},
+    {"module": "demo/shared", "semantic_digest": "sha256:7e8ac93bcbbbe89970f40aad64d0719405a40078c71188af1dcb129739cc2e27", "dependency_digest": "sha256:0830dd306eb8ba6df0277eb82deb4740730874b60d2b56f91872c63fc814f73f", "toolchain_digest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "contract_digest": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc", "result_digest": "sha256:2222222222222222222222222222222222222222222222222222222222222222", "immutable": true}
+  ],
+  "test_cache": [
+    {"test_id": "core-test", "result_digest": "sha256:1111111111111111111111111111111111111111111111111111111111111111", "toolchain_digest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "contract_digest": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc", "immutable": true},
+    {"test_id": "shared-test", "result_digest": "sha256:2222222222222222222222222222222222222222222222222222222222222222", "toolchain_digest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "contract_digest": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc", "immutable": true}
+  ],
+  "observations": [
+    {"test_id": "core-test", "status": "PASS", "result_digest": "sha256:1111111111111111111111111111111111111111111111111111111111111111"},
+    {"test_id": "leaf-test", "status": "PASS", "result_digest": "sha256:3333333333333333333333333333333333333333333333333333333333333333"},
+    {"test_id": "shared-test", "status": "PASS", "result_digest": "sha256:2222222222222222222222222222222222222222222222222222222222222222"}
+  ],
+  "full_oracle": {"independent": true, "digest": "sha256:30794c418da0c0474ef174596bc27c718e42c9bb11934087244ca0cdba488bc7", "results": [
+    {"test_id": "core-test", "status": "PASS", "result_digest": "sha256:1111111111111111111111111111111111111111111111111111111111111111"},
+    {"test_id": "leaf-test", "status": "PASS", "result_digest": "sha256:3333333333333333333333333333333333333333333333333333333333333333"},
+    {"test_id": "shared-test", "status": "PASS", "result_digest": "sha256:2222222222222222222222222222222222222222222222222222222222222222"}
+  ]},
+  "metrics": {"cold": {"compile_ms": 30, "build_ms": 10, "test_ms": 40, "conformance_ms": 20, "integration_ms": 5, "total_ms": 105, "peak_rss_kib": 100}, "warm": {"compile_ms": 10, "build_ms": 10, "test_ms": 15, "conformance_ms": 20, "integration_ms": 5, "total_ms": 60, "peak_rss_kib": 90}}
+}

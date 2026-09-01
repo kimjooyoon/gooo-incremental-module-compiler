@@ -1,0 +1,18 @@
+compiler "gooo-incremental-module-compiler/v1" {
+  precedence "REFUTED" "UNKNOWN" "CLOSED"
+  unknown_fields "stage" "step" "reason" "unknown_class" "next_operation" "blocked_by"
+  denominator "incremental-module-compiler-v1" count "12"
+  cell "MODULE_PARSE" stage "INPUT" step "parse-modules" closed "MODULES_PARSED" unknown "MODULE_INPUT_UNAVAILABLE" refuted "MODULE_INPUT_MALFORMED"
+  cell "SEMANTIC_DIGEST" stage "SEMANTIC" step "verify-semantic-digest" closed "SEMANTIC_DIGEST_MATCHED" unknown "SEMANTIC_DIGEST_MISSING" refuted "SEMANTIC_DIGEST_CONTRADICTED"
+  cell "DEPENDENCY_EDGE" stage "GRAPH" step "resolve-dependency-edge" closed "DEPENDENCY_EDGE_RESOLVED" unknown "DEPENDENCY_EDGE_UNKNOWN" refuted "DEPENDENCY_EDGE_CONTRADICTED"
+  cell "INVALIDATION_RULE" stage "INVALIDATION" step "apply-declared-rule" closed "INVALIDATION_RULE_APPLIED" unknown "INVALIDATION_RULE_UNAVAILABLE" refuted "INVALIDATION_RULE_CONTRADICTED"
+  cell "AFFECTED_MODULES" stage "INVALIDATION" step "compute-transitive-closure" closed "AFFECTED_MODULES_COMPUTED" unknown "AFFECTED_MODULES_UNKNOWN" refuted "AFFECTED_MODULES_CONTRADICTED"
+  cell "TEST_OWNERSHIP" stage "TEST_SELECTION" step "bind-test-ownership" closed "TEST_OWNERSHIP_BOUND" unknown "TEST_OWNERSHIP_UNKNOWN" refuted "TEST_OWNERSHIP_CONTRADICTED"
+  cell "CACHE_IDENTITY" stage "CACHE" step "verify-cache-identity" closed "CACHE_IDENTITY_MATCHED" unknown "CACHE_IDENTITY_UNKNOWN" refuted "STALE_CACHE_IDENTITY"
+  cell "MODULE_PLAN" stage "PLAN" step "compile-or-reuse-modules" closed "MODULE_PLAN_CLOSED" unknown "MODULE_PLAN_UNKNOWN" refuted "MODULE_PLAN_REFUTED"
+  cell "TEST_PLAN" stage "PLAN" step "select-execute-or-reuse-tests" closed "TEST_PLAN_CLOSED" unknown "TEST_PLAN_UNKNOWN" refuted "TEST_PLAN_REFUTED"
+  cell "FULL_ORACLE" stage "ORACLE" step "bind-independent-full-oracle" closed "FULL_ORACLE_BOUND" unknown "FULL_ORACLE_UNKNOWN" refuted "FULL_ORACLE_CONTRADICTED"
+  cell "METRICS" stage "METRICS" step "record-exact-paired-metrics" closed "EXACT_METRICS_RECORDED" unknown "METRICS_UNKNOWN" refuted "METRICS_CONTRADICTED"
+  cell "EMIT" stage "EMIT" step "generate-go-artifact" closed "GENERATED_GO_EMITTED" unknown "GENERATED_GO_UNKNOWN" refuted "GENERATED_GO_CONTRADICTED"
+  generation "go" package "main" entrypoint "main"
+}

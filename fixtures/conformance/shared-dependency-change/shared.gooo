@@ -1,0 +1,6 @@
+module "demo/shared" release "v1.0.0" semantic_digest "sha256:dc895e4ccab46318f633acd13a256cf6e4ce157f71d81aa4238ea3dd9a163b68" {
+  dependency "demo/core" release "v1.0.0" semantic_digest "sha256:8f316bb2fa13c55fa94e7033613b597095f68f096f94cd3778f8bea60c3adf94" edge "shared-core" invalidates "core-semantic"
+  export "SharedValueV2"
+  invalidation "shared-semantic" kind "semantic" scope "dependents"
+  test_owner "shared-test" owner "demo/shared" covers "demo/shared,demo/core" kind "unit" command "go test ./shared"
+}

@@ -1,0 +1,6 @@
+module "demo/leaf" release "v1.0.0" semantic_digest "sha256:b261f1b7946eeb5d972b4d3d63e8b0e81f0676037c71360011ed623aaad06047" {
+  dependency "demo/shared" release "v1.0.0" semantic_digest "sha256:dc895e4ccab46318f633acd13a256cf6e4ce157f71d81aa4238ea3dd9a163b68" edge "leaf-shared" invalidates "shared-semantic"
+  export "LeafValue"
+  invalidation "leaf-semantic" kind "semantic" scope "dependents"
+  test_owner "leaf-test" owner "demo/leaf" covers "demo/leaf,demo/shared,demo/core" kind "unit" command "go test ./leaf"
+}
