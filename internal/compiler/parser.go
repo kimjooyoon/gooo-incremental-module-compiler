@@ -204,11 +204,11 @@ func ParseConformanceFile(path string) (ConformanceManifest, error) {
 			}
 			manifest.Schema = tokens[1]
 			seenHeader, inside = true, true
-			continue
+			return nil
 		}
 		if tokens[0] == "}" {
 			inside = false
-			continue
+			return nil
 		}
 		if !inside || tokens[0] != "scenario" {
 			return fmt.Errorf("line %d: expected scenario record", lineNo)

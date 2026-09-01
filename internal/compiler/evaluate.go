@@ -43,7 +43,7 @@ func Evaluate(modules []Module, input ScenarioInput, policy Policy) (Report, []b
 	}
 	// Cold and warm runs share the same graph and scenario identity. Cache entries are
 	// only consulted by the warm run; the cold run is the paired baseline.
-	cold := runMode("COLD", orderedModules, input, graph, orderedModules, policy, &state)
+	cold := runMode("COLD", orderedModules, input, graph, moduleIDs(orderedModules), policy, &state)
 	warm := runMode("WARM", orderedModules, input, graph, affected, policy, &state)
 	checkOracle(input, cold, &state)
 	checkOracle(input, warm, &state)
@@ -210,6 +210,14 @@ func computeAffected(modules []Module, changes []Change, state *evaluationState)
 		result = append(result, module)
 	}
 	sort.Strings(result)
+	return result
+}
+
+func moduleIDs(modules []Module) []string {
+	result := make([]string, 0, len(modules))
+	for _, module := range modules {
+		result = append(result, module.Identity)
+	}
 	return result
 }
 
