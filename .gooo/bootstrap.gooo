@@ -1,0 +1,86 @@
+{
+  "schema": "gooo.bootstrap/v1",
+  "authority": "metacode",
+  "contract_id": "gooo-repository-bootstrap",
+  "policy": {
+    "bootstrap_commit": {
+      "exactly": 1,
+      "exception": "BOOTSTRAP_EXCEPTION"
+    },
+    "post_bootstrap_direct_main": {
+      "exactly": 0,
+      "violation_status": "REFUTED"
+    },
+    "status_precedence": ["REFUTED", "UNKNOWN", "CLOSED"],
+    "unknown_fields": [
+      "stage",
+      "step",
+      "reason",
+      "unknown_class",
+      "next_operation",
+      "blocked_by"
+    ],
+    "apply_boundary": {
+      "plan_before_apply": true,
+      "target_repo_writes_before_apply": 0,
+      "caller_owned_outputs_only": true
+    },
+    "improvement_evidence": {
+      "same_input_digest_required": true,
+      "before_after_integer_pair_required": true,
+      "missing_evidence_status": "UNKNOWN"
+    },
+    "closure_guards": [
+      {
+        "claim": "global_language_self_improvement",
+        "without_evidence_status": "UNKNOWN"
+      },
+      {
+        "claim": "external_utility",
+        "without_evidence_status": "UNKNOWN"
+      }
+    ]
+  },
+  "inventory": {
+    "exclude_paths": ["README.md"]
+  },
+  "measurements": {
+    "file_classes": ["go", "gooo", "subdirectory", "regular_file"],
+    "physical_lines": true,
+    "wall_ms": ["build", "test", "conformance"],
+    "peak_rss_kib": ["build", "test", "conformance"],
+    "test_counts": ["total", "executed", "reused", "failed", "unknown"],
+    "generated_artifacts": ["count", "bytes"]
+  },
+  "canonical_cases": [
+    {
+      "id": "normal",
+      "expected_status": "CLOSED",
+      "post_bootstrap_direct_main": 0,
+      "github_api": "observed",
+      "ruleset": "observed"
+    },
+    {
+      "id": "unknown-api-observability",
+      "expected_status": "UNKNOWN",
+      "post_bootstrap_direct_main": 0,
+      "github_api": "insufficient",
+      "ruleset": "insufficient",
+      "unknown": {
+        "stage": "verify",
+        "step": "observe-github-policy",
+        "reason": "GitHub API evidence is unavailable or insufficient",
+        "unknown_class": "external-observability",
+        "next_operation": "retry authenticated REST reads",
+        "blocked_by": "missing-or-insufficient-api-observation"
+      }
+    },
+    {
+      "id": "direct-main-observed",
+      "expected_status": "REFUTED",
+      "post_bootstrap_direct_main": 1,
+      "github_api": "observed",
+      "ruleset": "observed"
+    }
+  ]
+}
